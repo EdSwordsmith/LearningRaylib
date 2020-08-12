@@ -1,16 +1,8 @@
 #include "raylib.h"
 #include "entt/entt.hpp"
 
-int main(void)
+void CreateEntities(entt::registry &registry)
 {
-    const int screenWidth = 800;
-    const int screenHeight = 450;
-
-    InitWindow(screenWidth, screenHeight, "ECS Test");
-    SetTargetFPS(60);
-
-    entt::registry registry;
-
     auto e1 = registry.create();
     registry.emplace<Rectangle>(e1, Rectangle{0, 0, 100, 100});
     registry.emplace<Color>(e1, BLACK);
@@ -22,6 +14,19 @@ int main(void)
     auto e3 = registry.create();
     registry.emplace<Rectangle>(e3, Rectangle{600, 100, 70, 70});
     registry.emplace<Color>(e3, BLUE);
+}
+
+int main(void)
+{
+    const int screenWidth = 800;
+    const int screenHeight = 450;
+
+    InitWindow(screenWidth, screenHeight, "ECS Test");
+    SetTargetFPS(60);
+
+    entt::registry registry;
+
+    CreateEntities(registry);
 
     while (!WindowShouldClose())
     {
