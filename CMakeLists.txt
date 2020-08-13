@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.17)
 project(learningraylib)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
 
 find_package(raylib 3.0 QUIET)
 
@@ -19,3 +20,6 @@ target_link_libraries(starfield raylib)
 
 add_executable(ecs_test ecs_test/main.cpp)
 target_link_libraries(ecs_test raylib EnTT)
+
+add_executable(pong pong/main.c pong/player.c pong/player.h pong/ball.c pong/ball.h pong/ai.c pong/ai.h pong/structs.h)
+target_link_libraries(pong raylib)
