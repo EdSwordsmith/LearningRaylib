@@ -23,3 +23,6 @@ target_link_libraries(ecs_test raylib EnTT)
 
 add_executable(pong pong/main.c pong/player.c pong/player.h pong/ball.c pong/ball.h pong/ai.c pong/ai.h pong/structs.h)
 target_link_libraries(pong raylib)
+
+add_executable(flecs_test flecs_test/main.c flecs_test/flecs.c flecs_test/flecs.h)
+target_link_libraries(flecs_test raylib)
