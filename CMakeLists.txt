@@ -26,3 +26,12 @@ target_link_libraries(pong raylib)
 
 add_executable(flecs_test flecs_test/main.c flecs_test/flecs.c flecs_test/flecs.h)
 target_link_libraries(flecs_test raylib)
+
+file(GLOB ASSETS appbundle_test/assets/*)
+set_property(SOURCE "${ASSETS}"
+        PROPERTY MACOSX_PACKAGE_LOCATION "Resources/assets")
+add_executable(appbundle_test appbundle_test/main.c "${ASSETS}")
+target_link_libraries(appbundle_test raylib)
+set_target_properties(appbundle_test PROPERTIES
+        MACOSX_BUNDLE TRUE
+        MACOSX_FRAMEWORK_IDENTIFIER io.github.edswordsmith.bruh)
